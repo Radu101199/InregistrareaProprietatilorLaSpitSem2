@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ProiectFinalConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ProiectFinalConnectionString (Settings)" PropertyReference="ApplicationSettings.ProiectFinal.Properties.Settings.GlobalReference.Default.ProiectFinalConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SituatieProprietatiTableAdapter" GeneratorDataComponentClassName="SituatieProprietatiTableAdapter" Name="SituatieProprietati" UserDataComponentName="SituatieProprietatiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProiectFinalConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        SituatieProprietati.Valoare, Proprietari.IdProprietar, Proprietari.NumeProprietar, SituatieProprietati.ValoareImpozit, Proprietari.CNP
+FROM            (SituatieProprietati INNER JOIN
+                         Proprietari ON SituatieProprietati.IdProprietar = Proprietari.IdProprietar)
+ORDER BY Proprietari.NumeProprietar</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Valoare" DataSetColumn="Valoare" />
+              <Mapping SourceColumn="IdProprietar" DataSetColumn="IdProprietar" />
+              <Mapping SourceColumn="ValoareImpozit" DataSetColumn="ValoareImpozit" />
+              <Mapping SourceColumn="NumeProprietar" DataSetColumn="NumeProprietar" />
+              <Mapping SourceColumn="CNP" DataSetColumn="CNP" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CalculImpozitTableAdapter" GeneratorDataComponentClassName="CalculImpozitTableAdapter" Name="CalculImpozit" UserDataComponentName="CalculImpozitTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProiectFinalConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CalculImpozit.IdOperatie, CalculImpozit.Data, CalculImpozit.IdProprietar, CalculImpozit.Valoare, TipProprietate.IdTipProprietate, TipProprietate.DenumireTipProprietate, TipProprietate.ImpozitAnual, CalculImpozit.ValoareImpozit, 
+                         Proprietari.CNP
+FROM            ((CalculImpozit INNER JOIN
+                         TipProprietate ON CalculImpozit.IdTipProprietate = TipProprietate.IdTipProprietate) INNER JOIN
+                         Proprietari ON CalculImpozit.IdProprietar = Proprietari.IdProprietar)
+ORDER BY CalculImpozit.IdOperatie, CalculImpozit.Data</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdOperatie" DataSetColumn="IdOperatie" />
+              <Mapping SourceColumn="Data" DataSetColumn="Data" />
+              <Mapping SourceColumn="Valoare" DataSetColumn="Valoare" />
+              <Mapping SourceColumn="IdProprietar" DataSetColumn="IdProprietar" />
+              <Mapping SourceColumn="IdTipProprietate" DataSetColumn="IdTipProprietate" />
+              <Mapping SourceColumn="DenumireTipProprietate" DataSetColumn="DenumireTipProprietate" />
+              <Mapping SourceColumn="ImpozitAnual" DataSetColumn="ImpozitAnual" />
+              <Mapping SourceColumn="ValoareImpozit" DataSetColumn="ValoareImpozit" />
+              <Mapping SourceColumn="CNP" DataSetColumn="CNP" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ProiectFinalConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CalculImpozit.IdOperatie, CalculImpozit.Data, CalculImpozit.IdProprietar, CalculImpozit.Valoare, TipProprietate.DenumireTipProprietate, TipProprietate.ImpozitAnual
+FROM            (CalculImpozit INNER JOIN
+                         TipProprietate ON CalculImpozit.IdTipProprietate = TipProprietate.IdTipProprietate)
+ORDER BY CalculImpozit.IdOperatie, CalculImpozit.Data</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ProiectFinalConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        CalculImpozit.IdOperatie, CalculImpozit.Data, CalculImpozit.IdProprietar, CalculImpozit.Valoare, TipProprietate.IdTipProprietate, TipProprietate.DenumireTipProprietate, TipProprietate.ImpozitAnual, 
+                         CalculImpozit.ValoareImpozit
+FROM            (CalculImpozit INNER JOIN
+                         TipProprietate ON CalculImpozit.IdTipProprietate = TipProprietate.IdTipProprietate)
+ORDER BY CalculImpozit.IdOperatie, CalculImpozit.Data</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SituatieProprietati" msprop:Generator_TableClassName="SituatieProprietatiDataTable" msprop:Generator_TableVarName="tableSituatieProprietati" msprop:Generator_TablePropName="SituatieProprietati" msprop:Generator_RowDeletingName="SituatieProprietatiRowDeleting" msprop:Generator_RowChangingName="SituatieProprietatiRowChanging" msprop:Generator_RowEvHandlerName="SituatieProprietatiRowChangeEventHandler" msprop:Generator_RowDeletedName="SituatieProprietatiRowDeleted" msprop:Generator_UserTableName="SituatieProprietati" msprop:Generator_RowChangedName="SituatieProprietatiRowChanged" msprop:Generator_RowEvArgName="SituatieProprietatiRowChangeEvent" msprop:Generator_RowClassName="SituatieProprietatiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Valoare" msprop:Generator_ColumnVarNameInTable="columnValoare" msprop:Generator_ColumnPropNameInRow="Valoare" msprop:Generator_ColumnPropNameInTable="ValoareColumn" msprop:Generator_UserColumnName="Valoare" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IdProprietar" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdProprietar" msprop:Generator_ColumnPropNameInRow="IdProprietar" msprop:Generator_ColumnPropNameInTable="IdProprietarColumn" msprop:Generator_UserColumnName="IdProprietar" type="xs:int" minOccurs="0" />
+              <xs:element name="ValoareImpozit" msprop:Generator_ColumnVarNameInTable="columnValoareImpozit" msprop:Generator_ColumnPropNameInRow="ValoareImpozit" msprop:Generator_ColumnPropNameInTable="ValoareImpozitColumn" msprop:Generator_UserColumnName="ValoareImpozit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NumeProprietar" msprop:Generator_ColumnVarNameInTable="columnNumeProprietar" msprop:Generator_ColumnPropNameInRow="NumeProprietar" msprop:Generator_ColumnPropNameInTable="NumeProprietarColumn" msprop:Generator_UserColumnName="NumeProprietar" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CNP" msprop:Generator_ColumnVarNameInTable="columnCNP" msprop:Generator_ColumnPropNameInRow="CNP" msprop:Generator_ColumnPropNameInTable="CNPColumn" msprop:Generator_UserColumnName="CNP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CalculImpozit" msprop:Generator_TableClassName="CalculImpozitDataTable" msprop:Generator_TableVarName="tableCalculImpozit" msprop:Generator_TablePropName="CalculImpozit" msprop:Generator_RowDeletingName="CalculImpozitRowDeleting" msprop:Generator_RowChangingName="CalculImpozitRowChanging" msprop:Generator_RowEvHandlerName="CalculImpozitRowChangeEventHandler" msprop:Generator_RowDeletedName="CalculImpozitRowDeleted" msprop:Generator_UserTableName="CalculImpozit" msprop:Generator_RowChangedName="CalculImpozitRowChanged" msprop:Generator_RowEvArgName="CalculImpozitRowChangeEvent" msprop:Generator_RowClassName="CalculImpozitRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdOperatie" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdOperatie" msprop:Generator_ColumnPropNameInRow="IdOperatie" msprop:Generator_ColumnPropNameInTable="IdOperatieColumn" msprop:Generator_UserColumnName="IdOperatie" type="xs:int" minOccurs="0" />
+              <xs:element name="Data" msprop:Generator_ColumnVarNameInTable="columnData" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnPropNameInTable="DataColumn" msprop:Generator_UserColumnName="Data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Valoare" msprop:Generator_ColumnVarNameInTable="columnValoare" msprop:Generator_ColumnPropNameInRow="Valoare" msprop:Generator_ColumnPropNameInTable="ValoareColumn" msprop:Generator_UserColumnName="Valoare" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IdProprietar" msprop:Generator_ColumnVarNameInTable="columnIdProprietar" msprop:Generator_ColumnPropNameInRow="IdProprietar" msprop:Generator_ColumnPropNameInTable="IdProprietarColumn" msprop:Generator_UserColumnName="IdProprietar" type="xs:int" minOccurs="0" />
+              <xs:element name="IdTipProprietate" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdTipProprietate" msprop:Generator_ColumnPropNameInRow="IdTipProprietate" msprop:Generator_ColumnPropNameInTable="IdTipProprietateColumn" msprop:Generator_UserColumnName="IdTipProprietate" type="xs:int" minOccurs="0" />
+              <xs:element name="DenumireTipProprietate" msprop:Generator_ColumnVarNameInTable="columnDenumireTipProprietate" msprop:Generator_ColumnPropNameInRow="DenumireTipProprietate" msprop:Generator_ColumnPropNameInTable="DenumireTipProprietateColumn" msprop:Generator_UserColumnName="DenumireTipProprietate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ImpozitAnual" msprop:Generator_ColumnVarNameInTable="columnImpozitAnual" msprop:Generator_ColumnPropNameInRow="ImpozitAnual" msprop:Generator_ColumnPropNameInTable="ImpozitAnualColumn" msprop:Generator_UserColumnName="ImpozitAnual" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ValoareImpozit" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnValoareImpozit" msprop:Generator_ColumnPropNameInRow="ValoareImpozit" msprop:Generator_ColumnPropNameInTable="ValoareImpozitColumn" msprop:Generator_UserColumnName="ValoareImpozit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CNP" msprop:Generator_ColumnVarNameInTable="columnCNP" msprop:Generator_ColumnPropNameInRow="CNP" msprop:Generator_ColumnPropNameInTable="CNPColumn" msprop:Generator_UserColumnName="CNP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

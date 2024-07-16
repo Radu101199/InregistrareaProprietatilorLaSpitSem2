@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet9" targetNamespace="http://tempuri.org/DataSet9.xsd" xmlns:mstns="http://tempuri.org/DataSet9.xsd" xmlns="http://tempuri.org/DataSet9.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ProiectFinalConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ProiectFinalConnectionString (Settings)" PropertyReference="ApplicationSettings.ProiectFinal.Properties.Settings.GlobalReference.Default.ProiectFinalConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BalantaProprietatiTableAdapter" GeneratorDataComponentClassName="BalantaProprietatiTableAdapter" Name="BalantaProprietati" UserDataComponentName="BalantaProprietatiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProiectFinalConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        BalantaProprietati.IdProprietar, BalantaProprietati.SituatieInitiala, BalantaProprietati.Inregistrari, BalantaProprietati.Radieri, BalantaProprietati.SituatieFinala, Proprietari.NumeProprietar, Proprietari.CNP, 
+                         BalantaProprietati.SituatieFinalaImpozit
+FROM            (BalantaProprietati INNER JOIN
+                         Proprietari ON BalantaProprietati.IdProprietar = Proprietari.IdProprietar)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdProprietar" DataSetColumn="IdProprietar" />
+              <Mapping SourceColumn="SituatieInitiala" DataSetColumn="SituatieInitiala" />
+              <Mapping SourceColumn="Inregistrari" DataSetColumn="Inregistrari" />
+              <Mapping SourceColumn="Radieri" DataSetColumn="Radieri" />
+              <Mapping SourceColumn="NumeProprietar" DataSetColumn="NumeProprietar" />
+              <Mapping SourceColumn="CNP" DataSetColumn="CNP" />
+              <Mapping SourceColumn="SituatieFinala" DataSetColumn="SituatieFinala" />
+              <Mapping SourceColumn="SituatieFinalaImpozit" DataSetColumn="SituatieFinalaImpozit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CalculSituatieTableAdapter" GeneratorDataComponentClassName="CalculSituatieTableAdapter" Name="CalculSituatie" UserDataComponentName="CalculSituatieTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProiectFinalConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CalculImpozit.IdOperatie, CalculImpozit.Data, CalculImpozit.IdProprietar, CalculImpozit.Valoare, CalculImpozit.ValoareImpozit, Proprietari.CNP
+FROM            (CalculImpozit INNER JOIN
+                         Proprietari ON CalculImpozit.IdProprietar = Proprietari.IdProprietar)
+ORDER BY CalculImpozit.IdProprietar, CalculImpozit.Data</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdOperatie" DataSetColumn="IdOperatie" />
+              <Mapping SourceColumn="Data" DataSetColumn="Data" />
+              <Mapping SourceColumn="IdProprietar" DataSetColumn="IdProprietar" />
+              <Mapping SourceColumn="Valoare" DataSetColumn="Valoare" />
+              <Mapping SourceColumn="ValoareImpozit" DataSetColumn="ValoareImpozit" />
+              <Mapping SourceColumn="CNP" DataSetColumn="CNP" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InregistrariTableAdapter" GeneratorDataComponentClassName="InregistrariTableAdapter" Name="Inregistrari" UserDataComponentName="InregistrariTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProiectFinalConnectionString (Settings)" DbObjectName="CalculImpozit" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdProprietar, SUM(Valoare) AS Total, SUM(ValoareImpozit) AS TotalImpozit
+FROM            CalculImpozit
+WHERE        (IdOperatie = 2) OR
+                         (IdOperatie = 1)
+GROUP BY IdProprietar</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdProprietar" DataSetColumn="IdProprietar" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="TotalImpozit" DataSetColumn="TotalImpozit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RadieriTableAdapter" GeneratorDataComponentClassName="RadieriTableAdapter" Name="Radieri" UserDataComponentName="RadieriTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProiectFinalConnectionString (Settings)" DbObjectName="CalculImpozit" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        IdProprietar, SUM(Valoare) AS Total, SUM(ValoareImpozit) AS TotalImpozit
+FROM            CalculImpozit
+WHERE        (IdOperatie = 3)
+GROUP BY IdProprietar</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdProprietar" DataSetColumn="IdProprietar" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="TotalImpozit" DataSetColumn="TotalImpozit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BalantaTableAdapter" GeneratorDataComponentClassName="BalantaTableAdapter" Name="Balanta" UserDataComponentName="BalantaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProiectFinalConnectionString (Settings)" DbObjectName="BalantaProprietati" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `BalantaProprietati` WHERE ((`IdProprietar` = ?) AND ((? = 1 AND `SituatieInitiala` IS NULL) OR (`SituatieInitiala` = ?)) AND ((? = 1 AND `Inregistrari` IS NULL) OR (`Inregistrari` = ?)) AND ((? = 1 AND `Radieri` IS NULL) OR (`Radieri` = ?)) AND ((? = 1 AND `SituatieFinala` IS NULL) OR (`SituatieFinala` = ?)) AND ((? = 1 AND `SituatieFinalaImpozit` IS NULL) OR (`SituatieFinalaImpozit` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_IdProprietar" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IdProprietar" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_SituatieInitiala" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="SituatieInitiala" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_SituatieInitiala" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieInitiala" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Inregistrari" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Inregistrari" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Inregistrari" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Inregistrari" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Radieri" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Radieri" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Radieri" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Radieri" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_SituatieFinala" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="SituatieFinala" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_SituatieFinala" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieFinala" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_SituatieFinalaImpozit" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="SituatieFinalaImpozit" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_SituatieFinalaImpozit" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieFinalaImpozit" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `BalantaProprietati` (`SituatieInitiala`, `Inregistrari`, `Radieri`, `SituatieFinala`, `SituatieFinalaImpozit`) VALUES (?, ?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="SituatieInitiala" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieInitiala" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Inregistrari" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Inregistrari" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Radieri" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Radieri" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="SituatieFinala" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieFinala" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="SituatieFinalaImpozit" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieFinalaImpozit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT IdProprietar, SituatieInitiala, Inregistrari, Radieri, SituatieFinala, SituatieFinalaImpozit FROM BalantaProprietati</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `BalantaProprietati` SET `SituatieInitiala` = ?, `Inregistrari` = ?, `Radieri` = ?, `SituatieFinala` = ?, `SituatieFinalaImpozit` = ? WHERE ((`IdProprietar` = ?) AND ((? = 1 AND `SituatieInitiala` IS NULL) OR (`SituatieInitiala` = ?)) AND ((? = 1 AND `Inregistrari` IS NULL) OR (`Inregistrari` = ?)) AND ((? = 1 AND `Radieri` IS NULL) OR (`Radieri` = ?)) AND ((? = 1 AND `SituatieFinala` IS NULL) OR (`SituatieFinala` = ?)) AND ((? = 1 AND `SituatieFinalaImpozit` IS NULL) OR (`SituatieFinalaImpozit` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="SituatieInitiala" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieInitiala" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Inregistrari" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Inregistrari" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Radieri" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Radieri" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="SituatieFinala" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieFinala" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="SituatieFinalaImpozit" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieFinalaImpozit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_IdProprietar" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IdProprietar" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_SituatieInitiala" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="SituatieInitiala" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_SituatieInitiala" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieInitiala" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Inregistrari" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Inregistrari" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Inregistrari" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Inregistrari" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Radieri" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Radieri" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Radieri" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Radieri" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_SituatieFinala" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="SituatieFinala" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_SituatieFinala" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieFinala" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_SituatieFinalaImpozit" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="SituatieFinalaImpozit" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_SituatieFinalaImpozit" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SituatieFinalaImpozit" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdProprietar" DataSetColumn="IdProprietar" />
+              <Mapping SourceColumn="SituatieInitiala" DataSetColumn="SituatieInitiala" />
+              <Mapping SourceColumn="Inregistrari" DataSetColumn="Inregistrari" />
+              <Mapping SourceColumn="Radieri" DataSetColumn="Radieri" />
+              <Mapping SourceColumn="SituatieFinala" DataSetColumn="SituatieFinala" />
+              <Mapping SourceColumn="SituatieFinalaImpozit" DataSetColumn="SituatieFinalaImpozit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet9" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet9" msprop:Generator_UserDSName="DataSet9">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BalantaProprietati" msprop:Generator_TableClassName="BalantaProprietatiDataTable" msprop:Generator_TableVarName="tableBalantaProprietati" msprop:Generator_TablePropName="BalantaProprietati" msprop:Generator_RowDeletingName="BalantaProprietatiRowDeleting" msprop:Generator_RowChangingName="BalantaProprietatiRowChanging" msprop:Generator_RowEvHandlerName="BalantaProprietatiRowChangeEventHandler" msprop:Generator_RowDeletedName="BalantaProprietatiRowDeleted" msprop:Generator_UserTableName="BalantaProprietati" msprop:Generator_RowChangedName="BalantaProprietatiRowChanged" msprop:Generator_RowEvArgName="BalantaProprietatiRowChangeEvent" msprop:Generator_RowClassName="BalantaProprietatiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdProprietar" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdProprietar" msprop:Generator_ColumnPropNameInRow="IdProprietar" msprop:Generator_ColumnPropNameInTable="IdProprietarColumn" msprop:Generator_UserColumnName="IdProprietar" type="xs:int" minOccurs="0" />
+              <xs:element name="SituatieInitiala" msprop:Generator_ColumnVarNameInTable="columnSituatieInitiala" msprop:Generator_ColumnPropNameInRow="SituatieInitiala" msprop:Generator_ColumnPropNameInTable="SituatieInitialaColumn" msprop:Generator_UserColumnName="SituatieInitiala" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Inregistrari" msprop:Generator_ColumnVarNameInTable="columnInregistrari" msprop:Generator_ColumnPropNameInRow="Inregistrari" msprop:Generator_ColumnPropNameInTable="InregistrariColumn" msprop:Generator_UserColumnName="Inregistrari" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Radieri" msprop:Generator_ColumnVarNameInTable="columnRadieri" msprop:Generator_ColumnPropNameInRow="Radieri" msprop:Generator_ColumnPropNameInTable="RadieriColumn" msprop:Generator_UserColumnName="Radieri" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NumeProprietar" msprop:Generator_ColumnVarNameInTable="columnNumeProprietar" msprop:Generator_ColumnPropNameInRow="NumeProprietar" msprop:Generator_ColumnPropNameInTable="NumeProprietarColumn" msprop:Generator_UserColumnName="NumeProprietar" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CNP" msprop:Generator_ColumnVarNameInTable="columnCNP" msprop:Generator_ColumnPropNameInRow="CNP" msprop:Generator_ColumnPropNameInTable="CNPColumn" msprop:Generator_UserColumnName="CNP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SituatieFinala" msprop:Generator_ColumnVarNameInTable="columnSituatieFinala" msprop:Generator_ColumnPropNameInRow="SituatieFinala" msprop:Generator_ColumnPropNameInTable="SituatieFinalaColumn" msprop:Generator_UserColumnName="SituatieFinala" type="xs:int" minOccurs="0" />
+              <xs:element name="SituatieFinalaImpozit" msprop:Generator_ColumnVarNameInTable="columnSituatieFinalaImpozit" msprop:Generator_ColumnPropNameInRow="SituatieFinalaImpozit" msprop:Generator_ColumnPropNameInTable="SituatieFinalaImpozitColumn" msprop:Generator_UserColumnName="SituatieFinalaImpozit" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CalculSituatie" msprop:Generator_TableClassName="CalculSituatieDataTable" msprop:Generator_TableVarName="tableCalculSituatie" msprop:Generator_TablePropName="CalculSituatie" msprop:Generator_RowDeletingName="CalculSituatieRowDeleting" msprop:Generator_RowChangingName="CalculSituatieRowChanging" msprop:Generator_RowEvHandlerName="CalculSituatieRowChangeEventHandler" msprop:Generator_RowDeletedName="CalculSituatieRowDeleted" msprop:Generator_UserTableName="CalculSituatie" msprop:Generator_RowChangedName="CalculSituatieRowChanged" msprop:Generator_RowEvArgName="CalculSituatieRowChangeEvent" msprop:Generator_RowClassName="CalculSituatieRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdOperatie" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdOperatie" msprop:Generator_ColumnPropNameInRow="IdOperatie" msprop:Generator_ColumnPropNameInTable="IdOperatieColumn" msprop:Generator_UserColumnName="IdOperatie" type="xs:int" minOccurs="0" />
+              <xs:element name="Data" msprop:Generator_ColumnVarNameInTable="columnData" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnPropNameInTable="DataColumn" msprop:Generator_UserColumnName="Data" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IdProprietar" msprop:Generator_ColumnVarNameInTable="columnIdProprietar" msprop:Generator_ColumnPropNameInRow="IdProprietar" msprop:Generator_ColumnPropNameInTable="IdProprietarColumn" msprop:Generator_UserColumnName="IdProprietar" type="xs:int" minOccurs="0" />
+              <xs:element name="Valoare" msprop:Generator_ColumnVarNameInTable="columnValoare" msprop:Generator_ColumnPropNameInRow="Valoare" msprop:Generator_ColumnPropNameInTable="ValoareColumn" msprop:Generator_UserColumnName="Valoare" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ValoareImpozit" msprop:Generator_ColumnVarNameInTable="columnValoareImpozit" msprop:Generator_ColumnPropNameInRow="ValoareImpozit" msprop:Generator_ColumnPropNameInTable="ValoareImpozitColumn" msprop:Generator_UserColumnName="ValoareImpozit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CNP" msprop:Generator_ColumnVarNameInTable="columnCNP" msprop:Generator_ColumnPropNameInRow="CNP" msprop:Generator_ColumnPropNameInTable="CNPColumn" msprop:Generator_UserColumnName="CNP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Inregistrari" msprop:Generator_TableClassName="InregistrariDataTable" msprop:Generator_TableVarName="tableInregistrari" msprop:Generator_TablePropName="Inregistrari" msprop:Generator_RowDeletingName="InregistrariRowDeleting" msprop:Generator_RowChangingName="InregistrariRowChanging" msprop:Generator_RowEvHandlerName="InregistrariRowChangeEventHandler" msprop:Generator_RowDeletedName="InregistrariRowDeleted" msprop:Generator_UserTableName="Inregistrari" msprop:Generator_RowChangedName="InregistrariRowChanged" msprop:Generator_RowEvArgName="InregistrariRowChangeEvent" msprop:Generator_RowClassName="InregistrariRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdProprietar" msprop:Generator_ColumnVarNameInTable="columnIdProprietar" msprop:Generator_ColumnPropNameInRow="IdProprietar" msprop:Generator_ColumnPropNameInTable="IdProprietarColumn" msprop:Generator_UserColumnName="IdProprietar" type="xs:int" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalImpozit" msprop:Generator_ColumnVarNameInTable="columnTotalImpozit" msprop:Generator_ColumnPropNameInRow="TotalImpozit" msprop:Generator_ColumnPropNameInTable="TotalImpozitColumn" msprop:Generator_UserColumnName="TotalImpozit" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Radieri" msprop:Generator_TableClassName="RadieriDataTable" msprop:Generator_TableVarName="tableRadieri" msprop:Generator_TablePropName="Radieri" msprop:Generator_RowDeletingName="RadieriRowDeleting" msprop:Generator_RowChangingName="RadieriRowChanging" msprop:Generator_RowEvHandlerName="RadieriRowChangeEventHandler" msprop:Generator_RowDeletedName="RadieriRowDeleted" msprop:Generator_UserTableName="Radieri" msprop:Generator_RowChangedName="RadieriRowChanged" msprop:Generator_RowEvArgName="RadieriRowChangeEvent" msprop:Generator_RowClassName="RadieriRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdProprietar" msprop:Generator_ColumnVarNameInTable="columnIdProprietar" msprop:Generator_ColumnPropNameInRow="IdProprietar" msprop:Generator_ColumnPropNameInTable="IdProprietarColumn" msprop:Generator_UserColumnName="IdProprietar" type="xs:int" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalImpozit" msprop:Generator_ColumnVarNameInTable="columnTotalImpozit" msprop:Generator_ColumnPropNameInRow="TotalImpozit" msprop:Generator_ColumnPropNameInTable="TotalImpozitColumn" msprop:Generator_UserColumnName="TotalImpozit" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Balanta" msprop:Generator_TableClassName="BalantaDataTable" msprop:Generator_TableVarName="tableBalanta" msprop:Generator_RowChangedName="BalantaRowChanged" msprop:Generator_TablePropName="Balanta" msprop:Generator_RowDeletingName="BalantaRowDeleting" msprop:Generator_RowChangingName="BalantaRowChanging" msprop:Generator_RowEvHandlerName="BalantaRowChangeEventHandler" msprop:Generator_RowDeletedName="BalantaRowDeleted" msprop:Generator_RowClassName="BalantaRow" msprop:Generator_UserTableName="Balanta" msprop:Generator_RowEvArgName="BalantaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdProprietar" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIdProprietar" msprop:Generator_ColumnPropNameInRow="IdProprietar" msprop:Generator_ColumnPropNameInTable="IdProprietarColumn" msprop:Generator_UserColumnName="IdProprietar" type="xs:int" />
+              <xs:element name="SituatieInitiala" msprop:Generator_ColumnVarNameInTable="columnSituatieInitiala" msprop:Generator_ColumnPropNameInRow="SituatieInitiala" msprop:Generator_ColumnPropNameInTable="SituatieInitialaColumn" msprop:Generator_UserColumnName="SituatieInitiala" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Inregistrari" msprop:Generator_ColumnVarNameInTable="columnInregistrari" msprop:Generator_ColumnPropNameInRow="Inregistrari" msprop:Generator_ColumnPropNameInTable="InregistrariColumn" msprop:Generator_UserColumnName="Inregistrari" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Radieri" msprop:Generator_ColumnVarNameInTable="columnRadieri" msprop:Generator_ColumnPropNameInRow="Radieri" msprop:Generator_ColumnPropNameInTable="RadieriColumn" msprop:Generator_UserColumnName="Radieri" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SituatieFinala" msprop:Generator_ColumnVarNameInTable="columnSituatieFinala" msprop:Generator_ColumnPropNameInRow="SituatieFinala" msprop:Generator_ColumnPropNameInTable="SituatieFinalaColumn" msprop:Generator_UserColumnName="SituatieFinala" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SituatieFinalaImpozit" msprop:Generator_ColumnVarNameInTable="columnSituatieFinalaImpozit" msprop:Generator_ColumnPropNameInRow="SituatieFinalaImpozit" msprop:Generator_ColumnPropNameInTable="SituatieFinalaImpozitColumn" msprop:Generator_UserColumnName="SituatieFinalaImpozit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Balanta" />
+      <xs:field xpath="mstns:IdProprietar" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
